@@ -14,7 +14,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 
 export class LoginComponent implements OnInit {
-  loginForm!: FormGroup; // Reactive Form Group
+  loginForm!: FormGroup;
   userdata?: UserData;
 
   constructor(
@@ -25,7 +25,6 @@ export class LoginComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // Create the reactive form with validators
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required]

@@ -35,7 +35,6 @@ export class EditAvailabilityComponent implements OnInit {
     this.fetchAvailability();
   }
 
-  /** Fetches all availability slots for the doctor */
   fetchAvailability() {
     this.availabilityService.getAvailabilityByDoctor(this.doctorID).subscribe(
       (data) => {
@@ -47,24 +46,22 @@ export class EditAvailabilityComponent implements OnInit {
     );
   }
 
-  /** Selects availability for editing */
+
   selectAvailability(availability: any) {
-    this.selectedAvailability = { ...availability }; // Clone to avoid modifying directly
+    this.selectedAvailability = availability ;
   }
 
-  /** Toggles time slot selection */
   toggleTimeSlot(slot: string) {
     const convertedSlot = this.convertTo24HourFormat(slot);
     const index = this.selectedAvailability.timeSlots.indexOf(convertedSlot);
 
     if (index > -1) {
-      this.selectedAvailability.timeSlots.splice(index, 1); // Remove if already selected
+      this.selectedAvailability.timeSlots.splice(index, 1); 
     } else {
-      this.selectedAvailability.timeSlots.push(convertedSlot); // Add if not selected
+      this.selectedAvailability.timeSlots.push(convertedSlot);
     }
   }
 
-  /** Converts 12-hour format (AM/PM) to 24-hour format */
   convertTo24HourFormat(time: string): string {
     let [hour, minutePart] = time.split(':');
     let minute = minutePart.substring(0, 2);
@@ -81,7 +78,7 @@ export class EditAvailabilityComponent implements OnInit {
     return `${hourNum.toString().padStart(2, '0')}:${minute}`;
   }
 
-  /** Updates the selected availability */
+
   updateAvailability() {
     this.availabilityService.updateAvailability(this.selectedAvailability.availabilityID, this.selectedAvailability)
       .subscribe(
@@ -97,7 +94,6 @@ export class EditAvailabilityComponent implements OnInit {
       );
   }
 
-  /** Deletes an availability slot */
   deleteAvailability(id: number) {
     if (confirm('Are you sure you want to delete this availability?')) {
       this.availabilityService.deleteAvailability(id).subscribe(
@@ -113,7 +109,6 @@ export class EditAvailabilityComponent implements OnInit {
     }
   }
 
-  /** Navigates back to the doctor dashboard */
   goBack() {
     this.router.navigate(['/doctor']);
   }

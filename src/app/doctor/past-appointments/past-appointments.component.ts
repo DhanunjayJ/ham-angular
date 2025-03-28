@@ -48,7 +48,7 @@ export class PastAppointmentsComponent implements OnInit {
     this.appointmentService.cancelAppointment(appointmentID).subscribe(
       (data: AppointmentData) => {
         console.log('Appointment cancelled:', data);
-        this.loadAppointments(); // Refresh the list after cancellation
+        this.loadAppointments(); 
       },
       (error) => {
         console.error('Error cancelling appointment', error);

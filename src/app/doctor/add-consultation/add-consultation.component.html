@@ -18,11 +18,11 @@
           <td>{{ appointment.doctorID }}</td>
           <td>{{ appointment.timeSlot }}</td>
           <td>{{ appointment.status }}</td>
-          <td>
-            <button class="btn btn-primary btn-sm" (click)="addConsultation(appointment)">Add</button>
-            <button class="btn btn-warning btn-sm" (click)="editConsultation(appointment)">Edit</button>
-            <button class="btn btn-info btn-sm" (click)="viewConsultation(appointment)">View</button>
-            <button class="btn btn-danger btn-sm" (click)="deleteConsultation(appointment.appointmentID!)">Delete</button>
+          <td *ngIf="!(appointment.status=='Cancelled')">
+            <button class="btn btn-primary btn-sm " (click)="addConsultation(appointment)">Add</button>
+            <button class="btn btn-warning btn-sm ms-2" (click)="editConsultation(appointment)">Edit</button>
+            <button class="btn btn-info btn-sm ms-2" (click)="viewConsultation(appointment)">View</button>
+            <button class="btn btn-danger btn-sm ms-2" (click)="deleteConsultation(appointment.appointmentID!)">Delete</button>
           </td>
         </tr>
       </tbody>

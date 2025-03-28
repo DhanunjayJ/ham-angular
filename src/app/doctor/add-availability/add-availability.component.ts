@@ -23,7 +23,7 @@ export class AddAvailabilityComponent implements OnInit{
 
   ngOnInit() {
     const today = new Date();
-    this.minDate = today.toISOString().split('T')[0]; // Format YYYY-MM-DD
+    this.minDate = today.toISOString().split('T')[0]; 
   }
   
   availableTimeSlots: string[] = [
@@ -42,24 +42,24 @@ export class AddAvailabilityComponent implements OnInit{
     this.availability.doctorID = navigation?.extras.state?.['user'];
   }
 
-  /** Converts 12-hour format (AM/PM) to 24-hour format */
+  
   convertTo24HourFormat(time: string): string {
     let [hour, minutePart] = time.split(':');
     let minute = minutePart.substring(0, 2);
-    let period = minutePart.slice(-2); // AM or PM
+    let period = minutePart.slice(-2); 
 
     let hourNum = parseInt(hour, 10);
     if (period === 'PM' && hourNum < 12) {
       hourNum += 12;
     }
     if (period === 'AM' && hourNum === 12) {
-      hourNum = 0; // Midnight case
+      hourNum = 0;
     }
 
     return `${hourNum.toString().padStart(2, '0')}:${minute}`;
   }
 
-  /** Toggles time slot selection, converts to 24-hour format, and highlights selected slots */
+ 
   toggleTimeSlot(slot: string) {
     const convertedSlot = this.convertTo24HourFormat(slot);
     const selectedDate = new Date(this.availability.date);
@@ -102,12 +102,12 @@ export class AddAvailabilityComponent implements OnInit{
             return;
           } 
           
-          // Proceed with creating new availability
+        
           this.availabilityService.createAvailability(this.availability).subscribe(
             response => {
               this.toastr.success('Availability created successfully!');
               
-              // Reset form
+         
               this.availability.date = '';
               this.availability.timeSlots = [];
             },
@@ -123,7 +123,7 @@ export class AddAvailabilityComponent implements OnInit{
       );
   }
 
-  /** Navigates back to the doctor dashboard */
+
   goBack() {
     this.router.navigate(['/doctor']);
   }

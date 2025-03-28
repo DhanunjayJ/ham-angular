@@ -71,15 +71,15 @@ selectDate(availability: any) {
   const today = new Date();
   const selectedDateObj = new Date(this.selectedDate);
 
-  if (selectedDateObj.toDateString() === today.toDateString()) {
-    const currentTimeInMinutes = today.getHours() * 60 + today.getMinutes();
-    this.selectedTimeSlots = availability.timeSlots.filter((slot:string) => {
-      const [hour, minute] = slot.split(':').map(Number);
-      return (hour * 60 + minute) > currentTimeInMinutes;
-    });
-  } else {
+  // if (selectedDateObj.toDateString() === today.toDateString()) {
+  //   const currentTimeInMinutes = today.getHours() * 60 + today.getMinutes();
+  //   this.selectedTimeSlots = availability.timeSlots.filter((slot:string) => {
+  //     const [hour, minute] = slot.split(':').map(Number);
+  //     return (hour * 60 + minute) > currentTimeInMinutes;
+  //   });
+  // } else {
     this.selectedTimeSlots = availability.timeSlots;
-  }
+  // }
 
   this.selectedTime = ''; 
 }
