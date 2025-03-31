@@ -26,8 +26,8 @@ export class BookAppointmentComponent implements OnInit {
     private router: Router
   ) {
     const navigation = this.router.getCurrentNavigation();
-    this.doctor = navigation?.extras.state?.['doctor'];  // Get Doctor Data
-    this.user = navigation?.extras.state?.['user'];  // Get Patient Data
+    this.doctor = navigation?.extras.state?.['doctor']; 
+    this.user = navigation?.extras.state?.['user'];  
   }
 
   ngOnInit(): void {
@@ -40,22 +40,19 @@ export class BookAppointmentComponent implements OnInit {
   }
 
   fetchAvailability() {
-    const today = new Date(); // Get today's date
-    const currentTime = today.getHours() + ':' + today.getMinutes(); // Get current time in HH:MM format
+    const today = new Date();
+    const currentTime = today.getHours() + ':' + today.getMinutes(); 
  
     this.availabilityService.getAvailabilityByDoctor(this.doctor.userID).subscribe(
       (data) => {
         this.availabilities = data.map(availability => {
           const availabilityDate = new Date(availability.date);
           if (availabilityDate > today) {
-            // If the date is in the future, keep all timeslots
             return availability;
           } else if (availabilityDate.toDateString() === today.toDateString()) {
-            // If the date is today, filter timeslots based on current time
             availability.timeSlots = availability.timeSlots.filter(timeSlot => timeSlot > currentTime);
             return availability;
           }
-          // If the date is in the past, exclude the availability
           return null;
         }).filter(availability => availability !== null);
         console.log(this.availabilities);
@@ -70,17 +67,7 @@ selectDate(availability: any) {
   this.selectedDate = availability.date;
   const today = new Date();
   const selectedDateObj = new Date(this.selectedDate);
-
-  // if (selectedDateObj.toDateString() === today.toDateString()) {
-  //   const currentTimeInMinutes = today.getHours() * 60 + today.getMinutes();
-  //   this.selectedTimeSlots = availability.timeSlots.filter((slot:string) => {
-  //     const [hour, minute] = slot.split(':').map(Number);
-  //     return (hour * 60 + minute) > currentTimeInMinutes;
-  //   });
-  // } else {
     this.selectedTimeSlots = availability.timeSlots;
-  // }
-
   this.selectedTime = ''; 
 }
   selectTime(time: string) {
@@ -103,6 +90,7 @@ selectDate(availability: any) {
       (response) => {
         console.log('Appointment booked:', response);
         alert('Appointment booked successfully!');
+        this.router.navigate(['/patient']);
       },
       (error) => {
         console.error('Error booking appointment:', error);
@@ -110,4 +98,5 @@ selectDate(availability: any) {
       }
     );
   }
+
 }

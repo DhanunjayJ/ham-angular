@@ -32,11 +32,6 @@ export class AvailabilityService {
     return this.http.get<Availability | null>(`${this.baseUrl}/doctor/${doctorID}/date/${date}`);
   }
 
-  // getAvailableSlots(doctorID: number, date: string): Observable<string[]> {
-  //   return this.http.get<Availability | null>(`${this.baseUrl}/doctor/${doctorID}/date/${date}`).pipe(
-  //     map((availability) => availability ? availability.timeSlots : []),
-  //     catchError(() => of([])) // Return an empty array in case of an error
-  //   );
-  // }
+
 
 }

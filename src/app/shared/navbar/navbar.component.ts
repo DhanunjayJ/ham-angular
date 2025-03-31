@@ -19,11 +19,11 @@ export class NavbarComponent{
   }
 
   logout() {
-    localStorage.removeItem('loggedInUser'); // Clear user data
+    localStorage.removeItem('loggedInUser'); 
     this.router.navigate(['/login']);
   }
 
   updateUser() {
-    this.router.navigate(['user/update']); // Redirect to update user page
+    this.router.navigate(['user/update']);
   }
 }

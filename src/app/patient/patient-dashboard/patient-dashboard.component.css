@@ -99,7 +99,6 @@ ul li {
   background-color: #e68900;
 }
 
-/* Scrollable Doctor List */
 .doctor-list {
   display: flex;
   flex-direction: column;
@@ -111,12 +110,12 @@ ul li {
 .dashboard-header {
   display: flex;
   align-items: center;
-  gap: 10px; /* Adds space between button and search bar */
+  gap: 10px; 
   margin-bottom: 15px;
 }
 
 .search-bar {
-  flex: 1; /* Makes search bar expand to available space */
+  flex: 1;
   max-width: 500px;
   padding: 8px;
   margin-bottom: 20px;

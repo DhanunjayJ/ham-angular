@@ -21,6 +21,7 @@ export class EditAvailabilityComponent implements OnInit {
     '01:00 PM', '01:30 PM', '02:00 PM', '02:30 PM',
     '03:00 PM', '03:30 PM', '04:00 PM', '04:30 PM', '05:00 PM'
   ];
+  spinner:boolean=false;
 
   constructor(
     private router: Router,
@@ -80,10 +81,12 @@ export class EditAvailabilityComponent implements OnInit {
 
 
   updateAvailability() {
+    this.spinner=true;
     this.availabilityService.updateAvailability(this.selectedAvailability.availabilityID, this.selectedAvailability)
       .subscribe(
         () => {
           this.toastr.success('Availability updated successfully!');
+          this.spinner=false;
           this.fetchAvailability();
           this.selectedAvailability = null;
         },

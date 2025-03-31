@@ -13,13 +13,14 @@ import { ToastrService } from 'ngx-toastr';
   styleUrl: './add-availability.component.css'
 })
 export class AddAvailabilityComponent implements OnInit{
-
+  
   availability: Availability = {
     doctorID: 0,
     date: '',
     timeSlots: []
   };
   minDate!: string;
+  spinner:boolean=false;
 
   ngOnInit() {
     const today = new Date();
@@ -85,6 +86,7 @@ export class AddAvailabilityComponent implements OnInit{
   }
 
   createAvailability() {
+    this.spinner = true;
     if (!this.availability.date) {
       this.toastr.error("Please select a date.");
       return;
@@ -93,7 +95,7 @@ export class AddAvailabilityComponent implements OnInit{
       this.toastr.error("Please select at least one time slot.");
       return;
     }
-  
+    
     this.availabilityService.getAvailabilityByDoctorAndDate(this.availability.doctorID, this.availability.date)
       .subscribe(
         (existingAvailability) => {
@@ -101,13 +103,10 @@ export class AddAvailabilityComponent implements OnInit{
             this.toastr.error("Availability already exists for this date. Go to 'Edit Availability' to modify it.");
             return;
           } 
-          
-        
           this.availabilityService.createAvailability(this.availability).subscribe(
             response => {
               this.toastr.success('Availability created successfully!');
-              
-         
+              this.spinner= false;
               this.availability.date = '';
               this.availability.timeSlots = [];
             },

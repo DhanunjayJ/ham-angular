@@ -29,7 +29,9 @@
     </div>
 
     <div class="form-group text-center">
-      <button class="btn btn-primary" (click)="updateAvailability()">Update Availability</button>
+      <button class="btn btn-primary" (click)="updateAvailability()">
+        <span class="spinner-border spinner-border-sm" role="status" *ngIf="spinner" aria-hidden="true"></span>
+        Update Availability</button>
       <button class="btn btn-secondary ml-2" (click)="selectedAvailability = null">Cancel</button>
     </div>
   </div>

@@ -14,9 +14,6 @@ export class EditAppointmentComponent implements OnInit {
     appointments: any[] = [];
   
     constructor(private router: Router, private appointmentService: AppointmentService) {
-      // const navigation = this.router.getCurrentNavigation();
-      // this.user = navigation?.extras.state?.['user'];
-
       const storedUser = localStorage.getItem('loggedInUser');
     if (storedUser) {
       this.user = JSON.parse(storedUser);
@@ -31,7 +28,7 @@ export class EditAppointmentComponent implements OnInit {
     }
   
     fetchAppointments() {
-      const now = new Date(); // Get current date and time
+      const now = new Date();
     
       this.appointmentService.getAppointmentsByPatient(this.user.userID).subscribe(
         (data) => {
@@ -58,5 +55,9 @@ export class EditAppointmentComponent implements OnInit {
     editAppointment(appointment: any) {
       console.log(appointment);
       this.router.navigate(['appointment/update'], { state: { appointment: appointment } });
+    }
+
+    goBack() {
+      this.router.navigate(['/patient']);
     }
   }

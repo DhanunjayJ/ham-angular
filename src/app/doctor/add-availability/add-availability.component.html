@@ -20,7 +20,10 @@
   </div>
 
   <div class="form-group text-center">
-    <button class="btn btn-primary" (click)="createAvailability()">Add Availability</button>
+    <button class="btn btn-primary" (click)="createAvailability()"> 
+      <span class="spinner-border spinner-border-sm" role="status" *ngIf="spinner" aria-hidden="true"></span> Add Availability
+    </button>
+    
     <button class="btn btn-secondary ml-2" (click)="goBack()">Back</button>
   </div>
 </div>

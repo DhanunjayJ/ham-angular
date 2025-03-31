@@ -11,10 +11,10 @@ export const appConfig: ApplicationConfig = {
   providers: [provideAnimations(),
     importProvidersFrom(
       ToastrModule.forRoot({
-        timeOut: 3000,  // Toast disappears after 3s
+        timeOut: 3000, 
         positionClass: 'toast-top-right',
         preventDuplicates: true,
-        progressBar: true,  // Show progress bar
+        progressBar: true,
         newestOnTop:true
       })),
     provideZoneChangeDetection({ eventCoalescing: true }), 

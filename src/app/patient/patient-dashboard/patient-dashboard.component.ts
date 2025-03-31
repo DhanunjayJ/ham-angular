@@ -38,7 +38,7 @@ export class PatientDashboardComponent implements OnInit {
     this.userService.getUsersByRole('doctor').subscribe(
       (data) => {
         this.doctors = data;
-        this.filteredDoctors = data; // Initially, show all doctors
+        this.filteredDoctors = data;
       },
       (error) => {
         console.error('Error fetching doctors', error);
@@ -48,7 +48,7 @@ export class PatientDashboardComponent implements OnInit {
 
   filterDoctors(): void {
     if (!this.searchTerm.trim()) {
-      this.filteredDoctors = this.doctors; // Show all doctors if search is empty
+      this.filteredDoctors = this.doctors;
       return;
     }
     
