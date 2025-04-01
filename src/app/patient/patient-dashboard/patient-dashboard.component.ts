@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { AppointmentService } from '../../service/appointment/appointment.service';
 import { DoctorCardComponent } from '../doctor-card/doctor-card.component';
 import { NavbarComponent } from "../../shared/navbar/navbar.component";
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-patient-dashboard',
