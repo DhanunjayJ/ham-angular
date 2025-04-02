@@ -1,4 +1,4 @@
-/* Global and Body */
+
 body {
   margin: 0;
   padding: 0;
@@ -11,16 +11,14 @@ body {
   animation: fadeIn 1.5s ease-in-out;
 }
 
-/* Reuse Fade-In Animation */
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
 }
 
 .hero {
-  /* text-align: center; */
   padding: 73px 40px;
-  background: linear-gradient(135deg, #001f3f, #007bff); /* Dark-to-Light Gradient */
+  background: linear-gradient(135deg, #001f3f, #007bff);
   color: black;
   border-bottom-left-radius: 50% 20px;
   border-bottom-right-radius: 50% 20px;
@@ -31,13 +29,11 @@ body {
   font-size: 28px;
   font-weight: bold;
   padding: 20px 0;
-  /* color: #007bff(0, 89, 255); */
-  /* background: #001f3f; Deep Navy Blue */
   border-bottom: 3px solid #001f3f;
   letter-spacing: 1.5px;
 }
 
-/* Signup Container */
+
 .signup-container {
   display: flex;
   justify-content: center;
@@ -45,7 +41,7 @@ body {
   width: 100%;
 }
 
-/* Signup Card */
+
 .signup-card {
   background: #fff;
   padding: 40px;
@@ -56,7 +52,7 @@ body {
   animation: slideUp 1s ease-out forwards;
 }
 
-/* Slide Up Animation */
+
 @keyframes slideUp {
   from {
     opacity: 0;
@@ -68,7 +64,7 @@ body {
   }
 }
 
-/* Card Heading */
+
 .signup-card h2 {
   text-align: center;
   font-weight: bold;
@@ -78,13 +74,13 @@ body {
   letter-spacing: 1px;
 }
 
-/* Form Labels */
+
 .form-group label {
   font-weight: 600;
   color: #333;
 }
 
-/* Form Controls */
+
 .form-control {
   border-radius: 6px;
   padding: 12px;
@@ -96,7 +92,7 @@ body {
   box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
 }
 
-/* Signup Button */
+
 .btn-signup {
   background-color: #007bff;
   color: white;
@@ -113,7 +109,7 @@ body {
   transform: scale(1.02);
 }
 
-/* Login Link */
+
 .login-link {
   text-align: center;
   margin-top: 15px;
