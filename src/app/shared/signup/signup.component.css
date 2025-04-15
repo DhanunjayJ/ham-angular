@@ -2,7 +2,7 @@
 body {
   margin: 0;
   padding: 0;
-  background: linear-gradient(135deg, #0056b3, #00aaff);
+  background: linear-gradient(135deg, #000000, #a018ff);
   font-family: 'Roboto', sans-serif;
   display: flex;
   justify-content: center;
@@ -18,7 +18,7 @@ body {
 
 .hero {
   padding: 73px 40px;
-  background: linear-gradient(135deg, #001f3f, #007bff);
+  background: linear-gradient(135deg, #001f3f, #a018ff);
   color: black;
   border-bottom-left-radius: 50% 20px;
   border-bottom-right-radius: 50% 20px;
@@ -88,13 +88,13 @@ body {
   transition: border 0.3s ease;
 }
 .form-control:focus {
-  border-color: #007bff;
-  box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+  border-color: #a018ff;
+  box-shadow: 0 0 8px rgba(187, 0, 255, 0.33);
 }
 
 
 .btn-signup {
-  background-color: #007bff;
+  background-color: #a018ff;
   color: white;
   font-size: 18px;
   padding: 12px;
@@ -105,7 +105,7 @@ body {
   font-weight: 600;
 }
 .btn-signup:hover {
-  background-color: #0056b3;
+  background-color: #7312b8;
   transform: scale(1.02);
 }
 
@@ -116,7 +116,7 @@ body {
   font-size: 16px;
 }
 .login-link a {
-  color: #007bff;
+  color: #a018ff;
   text-decoration: none;
   font-weight: bold;
 }

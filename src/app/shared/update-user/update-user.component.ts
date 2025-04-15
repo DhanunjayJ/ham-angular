@@ -28,7 +28,7 @@ export class UpdateUserComponent implements OnInit {
     this.userService.updateUser(this.user.userID, this.user).subscribe((updatedUser) => {
       alert('Profile updated successfully.');
       localStorage.setItem('loggedInUser', JSON.stringify(updatedUser)); 
-      this.router.navigate(['/patient']);
+      window.history.back();
     });
   }
 
